@@ -7,6 +7,7 @@ const Favourites = (company) => {
   const favourites = useSelector((state) => state.favourites.content);
   const dispatch = useDispatch();
   const handleTrash = () => {
+    //se qui metto i da utlizzare quando invocata mi va in loop infinito!?!???
     dispatch({
       type: TRASH_THIS_FAV,
       payload: company,
@@ -25,6 +26,7 @@ const Favourites = (company) => {
               >
                 <Link to={"/" + company}>{company}</Link>
                 <Button variant="warning" onClick={handleTrash}>
+                  {/* se aggiungo la i "BOOM !"*/}
                   <i className="bi bi-trash"></i>
                 </Button>
               </ListGroup.Item>
