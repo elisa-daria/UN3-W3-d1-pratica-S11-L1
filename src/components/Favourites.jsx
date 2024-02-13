@@ -1,4 +1,4 @@
-import { Container, Row, Col, ListGroup } from "react-bootstrap";
+import { Container, Row, Col, ListGroup, Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -8,7 +8,7 @@ const Favourites = () => {
   return (
     <Container>
       <Row className="justify-content-center">
-        <h1>FAVOURITES</h1>
+        <h1 className="text-center mx-4">FAVOURITES</h1>
         <Col md={8}>
           <ListGroup>
             {favourites.map((company, i) => (
@@ -17,6 +17,13 @@ const Favourites = () => {
               </ListGroup.Item>
             ))}
           </ListGroup>
+        </Col>
+      </Row>
+      <Row className="justify-content-end">
+        <Col>
+          <Button variant="link">
+            <Link to={"/"}>Back Home</Link>
+          </Button>
         </Col>
       </Row>
     </Container>
