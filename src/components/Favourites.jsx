@@ -20,7 +20,7 @@ const Favourites = () => {
         </Col>
       </Row>
       <Row className="justify-content-end">
-        <Col>
+        <Col className="d-flex justify-content-end mt-5">
           <Button variant="link">
             <Link to={"/"}>Back Home</Link>
           </Button>
