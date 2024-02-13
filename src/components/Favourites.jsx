@@ -1,10 +1,17 @@
 import { Container, Row, Col, ListGroup, Button } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { TRASH_THIS_FAV } from "../redux/actions";
 
-const Favourites = () => {
+const Favourites = (company) => {
   const favourites = useSelector((state) => state.favourites.content);
-
+  const dispatch = useDispatch();
+  const handleTrash = () => {
+    dispatch({
+      type: TRASH_THIS_FAV,
+      payload: company,
+    });
+  };
   return (
     <Container>
       <Row className="justify-content-center">
@@ -12,8 +19,14 @@ const Favourites = () => {
         <Col md={8}>
           <ListGroup>
             {favourites.map((company, i) => (
-              <ListGroup.Item key={i}>
+              <ListGroup.Item
+                key={i}
+                className="d-flex justify-content-between"
+              >
                 <Link to={"/" + company}>{company}</Link>
+                <Button variant="warning" onClick={handleTrash}>
+                  <i className="bi bi-trash"></i>
+                </Button>
               </ListGroup.Item>
             ))}
           </ListGroup>
